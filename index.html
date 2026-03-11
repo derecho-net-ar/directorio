@@ -11,6 +11,12 @@
 
 <style>
 
+:root{
+--color-principal:#2c5363;
+--color-secundario:#3f6f82;
+--color-fondo:#f4f6f8;
+}
+
 *{
 box-sizing:border-box;
 margin:0;
@@ -19,20 +25,25 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background:#f4f6f8;
+background:var(--color-fondo);
 color:#333;
 }
 
 header{
-background:#0f172a;
+background:var(--color-principal);
 color:white;
-padding:20px;
+padding:22px;
 text-align:center;
 }
 
 header h1{
 font-size:24px;
 margin-bottom:5px;
+}
+
+header p{
+opacity:0.9;
+font-size:14px;
 }
 
 .container{
@@ -54,9 +65,15 @@ border:1px solid #ccc;
 font-size:16px;
 }
 
+input:focus, select:focus{
+outline:none;
+border-color:var(--color-principal);
+box-shadow:0 0 3px var(--color-principal);
+}
+
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:20px;
 }
 
@@ -64,17 +81,23 @@ gap:20px;
 background:white;
 border-radius:10px;
 padding:20px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+transition:transform 0.2s;
+}
+
+.card:hover{
+transform:translateY(-3px);
 }
 
 .card h3{
 font-size:18px;
 margin-bottom:6px;
+color:var(--color-principal);
 }
 
 .card p{
 font-size:14px;
-margin-bottom:5px;
+margin-bottom:4px;
 }
 
 .card a{
@@ -82,19 +105,19 @@ display:inline-block;
 margin-top:10px;
 text-decoration:none;
 color:white;
-background:#2563eb;
-padding:8px 12px;
+background:var(--color-principal);
+padding:8px 14px;
 border-radius:6px;
 font-size:14px;
 }
 
 .card a:hover{
-background:#1d4ed8;
+background:var(--color-secundario);
 }
 
 footer{
 margin-top:40px;
-background:#0f172a;
+background:var(--color-principal);
 color:white;
 text-align:center;
 padding:20px;
@@ -118,8 +141,7 @@ font-size:20px;
 <header>
 
 <h1>Directorio de Abogados</h1>
-
-<p>Encuentre abogados por especialidad</p>
+<p>Encuentre abogados por especialidad y ciudad</p>
 
 </header>
 
