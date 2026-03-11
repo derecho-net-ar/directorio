@@ -3,43 +3,55 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Directorio Jurídico Argentino | derecho.net.ar</title>
+<title>Directorio de Abogados | derecho.net.ar</title>
 
-<meta name="description" content="Directorio jurídico argentino: juzgados, tribunales, organismos y recursos legales.">
+<meta name="description" content="Directorio de abogados de Argentina. Encuentre abogados por especialidad y ciudad.">
 
 <style>
 
-body{
-font-family: Arial, sans-serif;
-background:#f4f4f4;
+*{
+box-sizing:border-box;
 margin:0;
+padding:0;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#f4f6f8;
+color:#333;
 }
 
 header{
-background:#1a1a1a;
+background:#0f172a;
 color:white;
 padding:20px;
 text-align:center;
 }
 
+header h1{
+font-size:24px;
+margin-bottom:5px;
+}
+
 .container{
-width:90%;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
+padding:20px;
 }
 
-.search{
-margin:20px 0;
+.search-bar{
+margin-bottom:20px;
 }
 
-input{
+input, select{
 width:100%;
 padding:12px;
-font-size:16px;
+margin-top:10px;
+border-radius:6px;
 border:1px solid #ccc;
-border-radius:5px;
+font-size:16px;
 }
 
 .grid{
@@ -50,31 +62,51 @@ gap:20px;
 
 .card{
 background:white;
+border-radius:10px;
 padding:20px;
-border-radius:8px;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
 .card h3{
-margin-top:0;
+font-size:18px;
+margin-bottom:6px;
+}
+
+.card p{
+font-size:14px;
+margin-bottom:5px;
 }
 
 .card a{
-color:#0066cc;
+display:inline-block;
+margin-top:10px;
 text-decoration:none;
+color:white;
+background:#2563eb;
+padding:8px 12px;
+border-radius:6px;
+font-size:14px;
 }
 
 .card a:hover{
-text-decoration:underline;
+background:#1d4ed8;
 }
 
 footer{
 margin-top:40px;
-background:#1a1a1a;
+background:#0f172a;
 color:white;
 text-align:center;
 padding:20px;
 font-size:14px;
+}
+
+@media (max-width:600px){
+
+header h1{
+font-size:20px;
+}
+
 }
 
 </style>
@@ -85,69 +117,71 @@ font-size:14px;
 
 <header>
 
-<h1>Directorio Jurídico</h1>
+<h1>Directorio de Abogados</h1>
 
-<p>Instituciones y recursos del derecho argentino</p>
+<p>Encuentre abogados por especialidad</p>
 
 </header>
 
 <div class="container">
 
-<div class="search">
+<div class="search-bar">
 
-<input type="text" id="searchInput" placeholder="Buscar institución...">
+<input type="text" id="searchInput" placeholder="Buscar abogado o ciudad...">
 
-</div>
+<select id="filterEspecialidad">
 
-<div class="grid" id="directory">
+<option value="">Todas las especialidades</option>
+<option value="laboral">Derecho Laboral</option>
+<option value="civil">Derecho Civil</option>
+<option value="penal">Derecho Penal</option>
+<option value="familia">Derecho de Familia</option>
 
-<div class="card">
-
-<h3>Corte Suprema de Justicia</h3>
-
-<p>Máximo tribunal de la República Argentina.</p>
-
-<a href="https://www.csjn.gov.ar" target="_blank">Visitar sitio</a>
+</select>
 
 </div>
 
-<div class="card">
+<div class="grid" id="lawyers">
 
-<h3>Ministerio de Justicia</h3>
+<div class="card" data-especialidad="laboral">
 
-<p>Organismo encargado de la política judicial nacional.</p>
+<h3>Dr. Juan Pérez</h3>
 
-<a href="https://www.argentina.gob.ar/justicia" target="_blank">Visitar sitio</a>
+<p><strong>Especialidad:</strong> Derecho Laboral</p>
 
-</div>
+<p><strong>Ciudad:</strong> Buenos Aires</p>
 
-<div class="card">
+<p>Asesoramiento en despidos e indemnizaciones.</p>
 
-<h3>Boletín Oficial</h3>
-
-<p>Publicación oficial de leyes y decretos.</p>
-
-<a href="https://www.boletinoficial.gob.ar" target="_blank">Visitar sitio</a>
+<a href="#">Ver perfil</a>
 
 </div>
 
-<div class="card">
+<div class="card" data-especialidad="civil">
 
-<h3>Colegio Público de Abogados</h3>
+<h3>Dra. María Gómez</h3>
 
-<p>Institución que nuclea a abogados matriculados.</p>
+<p><strong>Especialidad:</strong> Derecho Civil</p>
 
-<a href="https://www.cpacf.org.ar" target="_blank">Visitar sitio</a>
+<p><strong>Ciudad:</strong> Córdoba</p>
+
+<p>Contratos, daños y responsabilidad civil.</p>
+
+<a href="#">Ver perfil</a>
 
 </div>
 
-<div class="card">
+<div class="card" data-especialidad="penal">
 
-<h3>Infoleg</h3>
+<h3>Dr. Carlos Fernández</h3>
 
-<p>Base de datos de legislación argentina.</p>
+<p><strong>Especialidad:</strong> Derecho Penal</p>
 
-<a href="https://www.infoleg.gob.ar" target="_blank">Visitar sitio</a>
+<p><strong>Ciudad:</strong> Rosario</p>
+
+<p>Defensa penal y asesoramiento penal.</p>
+
+<a href="#">Ver perfil</a>
 
 </div>
 
@@ -157,29 +191,46 @@ font-size:14px;
 
 <footer>
 
-© 2026 derecho.net.ar – Directorio Jurídico
+© 2026 derecho.net.ar – Directorio de Abogados
 
 </footer>
 
 <script>
 
 const searchInput = document.getElementById("searchInput");
+const filterEspecialidad = document.getElementById("filterEspecialidad");
 
-searchInput.addEventListener("keyup", function(){
+function filterLawyers(){
 
-let filter = searchInput.value.toLowerCase();
+let text = searchInput.value.toLowerCase();
+let especialidad = filterEspecialidad.value;
 
 let cards = document.querySelectorAll(".card");
 
-cards.forEach(function(card){
+cards.forEach(card => {
 
-let text = card.innerText.toLowerCase();
+let content = card.innerText.toLowerCase();
+let cardEspecialidad = card.dataset.especialidad;
 
-card.style.display = text.includes(filter) ? "block" : "none";
+let matchText = content.includes(text);
+let matchEspecialidad = especialidad === "" || cardEspecialidad === especialidad;
+
+if(matchText && matchEspecialidad){
+
+card.style.display = "block";
+
+}else{
+
+card.style.display = "none";
+
+}
 
 });
 
-});
+}
+
+searchInput.addEventListener("keyup", filterLawyers);
+filterEspecialidad.addEventListener("change", filterLawyers);
 
 </script>
 
