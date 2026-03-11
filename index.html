@@ -7,69 +7,109 @@
 
 <title>Directorio de Abogados | derecho.net.ar</title>
 
-<meta name="description" content="Directorio de abogados de Argentina. Encuentre abogados por especialidad y ciudad.">
+<meta name="description" content="Encuentre abogados en Argentina por especialidad y ciudad. Directorio jurídico de derecho.net.ar">
 
 <style>
 
 :root{
---color-principal:#2c5363;
---color-secundario:#3f6f82;
---color-fondo:#f4f6f8;
+--primary:#2c5363;
+--primary-dark:#203c47;
+--accent:#3e7287;
+--bg:#f5f7f9;
 }
 
 *{
 box-sizing:border-box;
 margin:0;
 padding:0;
-font-family:Arial, sans-serif;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
 }
 
 body{
-background:var(--color-fondo);
+background:var(--bg);
 color:#333;
 }
 
-header{
-background:var(--color-principal);
+/* NAVBAR */
+
+nav{
+background:white;
+padding:14px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo{
+font-weight:bold;
+color:var(--primary);
+font-size:18px;
+}
+
+.menu a{
+margin-left:20px;
+text-decoration:none;
+color:#555;
+font-size:14px;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(135deg,var(--primary),var(--accent));
 color:white;
-padding:22px;
+padding:50px 20px;
 text-align:center;
 }
 
-header h1{
-font-size:24px;
-margin-bottom:5px;
+.hero h1{
+font-size:30px;
+margin-bottom:10px;
 }
 
-header p{
+.hero p{
 opacity:0.9;
-font-size:14px;
+margin-bottom:20px;
 }
+
+.search-box{
+max-width:700px;
+margin:auto;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.search-box input,
+.search-box select{
+
+flex:1;
+padding:12px;
+border-radius:6px;
+border:none;
+font-size:16px;
+}
+
+.search-box button{
+background:white;
+color:var(--primary);
+border:none;
+padding:12px 18px;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* CONTAINER */
 
 .container{
 max-width:1200px;
 margin:auto;
-padding:20px;
+padding:30px 20px;
 }
 
-.search-bar{
-margin-bottom:20px;
-}
-
-input, select{
-width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:6px;
-border:1px solid #ccc;
-font-size:16px;
-}
-
-input:focus, select:focus{
-outline:none;
-border-color:var(--color-principal);
-box-shadow:0 0 3px var(--color-principal);
-}
+/* GRID */
 
 .grid{
 display:grid;
@@ -77,59 +117,64 @@ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:20px;
 }
 
+/* CARD */
+
 .card{
 background:white;
-border-radius:10px;
 padding:20px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-transition:transform 0.2s;
+border-radius:10px;
+box-shadow:0 3px 12px rgba(0,0,0,0.08);
+transition:0.2s;
 }
 
 .card:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
 }
 
 .card h3{
-font-size:18px;
-margin-bottom:6px;
-color:var(--color-principal);
+color:var(--primary);
+margin-bottom:5px;
 }
 
 .card p{
 font-size:14px;
-margin-bottom:4px;
+margin-bottom:5px;
 }
 
-.card a{
+.badge{
+display:inline-block;
+background:var(--accent);
+color:white;
+padding:4px 8px;
+border-radius:5px;
+font-size:12px;
+margin-bottom:8px;
+}
+
+.profile-btn{
 display:inline-block;
 margin-top:10px;
 text-decoration:none;
+background:var(--primary);
 color:white;
-background:var(--color-principal);
 padding:8px 14px;
 border-radius:6px;
 font-size:14px;
 }
 
-.card a:hover{
-background:var(--color-secundario);
+.profile-btn:hover{
+background:var(--primary-dark);
 }
+
+/* FOOTER */
 
 footer{
-margin-top:40px;
-background:var(--color-principal);
+background:var(--primary);
 color:white;
 text-align:center;
-padding:20px;
+padding:25px;
+margin-top:40px;
 font-size:14px;
-}
-
-@media (max-width:600px){
-
-header h1{
-font-size:20px;
-}
-
 }
 
 </style>
@@ -138,22 +183,32 @@ font-size:20px;
 
 <body>
 
-<header>
+<nav>
 
-<h1>Directorio de Abogados</h1>
-<p>Encuentre abogados por especialidad y ciudad</p>
+<div class="logo">derecho.net.ar</div>
 
-</header>
+<div class="menu">
+<a href="#">Inicio</a>
+<a href="#">Especialidades</a>
+<a href="#">Ciudades</a>
+<a href="#">Publicar perfil</a>
+</div>
 
-<div class="container">
+</nav>
 
-<div class="search-bar">
+<section class="hero">
 
-<input type="text" id="searchInput" placeholder="Buscar abogado o ciudad...">
+<h1>Encuentre Abogados en Argentina</h1>
+
+<p>Busque por especialidad, ciudad o nombre</p>
+
+<div class="search-box">
+
+<input type="text" id="searchInput" placeholder="Nombre o ciudad">
 
 <select id="filterEspecialidad">
 
-<option value="">Todas las especialidades</option>
+<option value="">Especialidad</option>
 <option value="laboral">Derecho Laboral</option>
 <option value="civil">Derecho Civil</option>
 <option value="penal">Derecho Penal</option>
@@ -161,49 +216,55 @@ font-size:20px;
 
 </select>
 
+<button>Buscar</button>
+
 </div>
+
+</section>
+
+<div class="container">
 
 <div class="grid" id="lawyers">
 
 <div class="card" data-especialidad="laboral">
 
+<span class="badge">Laboral</span>
+
 <h3>Dr. Juan Pérez</h3>
 
-<p><strong>Especialidad:</strong> Derecho Laboral</p>
+<p>Buenos Aires</p>
 
-<p><strong>Ciudad:</strong> Buenos Aires</p>
+<p>Despidos, indemnizaciones y conflictos laborales.</p>
 
-<p>Asesoramiento en despidos e indemnizaciones.</p>
-
-<a href="#">Ver perfil</a>
+<a class="profile-btn" href="#">Ver perfil</a>
 
 </div>
 
 <div class="card" data-especialidad="civil">
 
+<span class="badge">Civil</span>
+
 <h3>Dra. María Gómez</h3>
 
-<p><strong>Especialidad:</strong> Derecho Civil</p>
-
-<p><strong>Ciudad:</strong> Córdoba</p>
+<p>Córdoba</p>
 
 <p>Contratos, daños y responsabilidad civil.</p>
 
-<a href="#">Ver perfil</a>
+<a class="profile-btn" href="#">Ver perfil</a>
 
 </div>
 
 <div class="card" data-especialidad="penal">
 
+<span class="badge">Penal</span>
+
 <h3>Dr. Carlos Fernández</h3>
 
-<p><strong>Especialidad:</strong> Derecho Penal</p>
-
-<p><strong>Ciudad:</strong> Rosario</p>
+<p>Rosario</p>
 
 <p>Defensa penal y asesoramiento penal.</p>
 
-<a href="#">Ver perfil</a>
+<a class="profile-btn" href="#">Ver perfil</a>
 
 </div>
 
@@ -213,46 +274,39 @@ font-size:20px;
 
 <footer>
 
-© 2026 derecho.net.ar – Directorio de Abogados
+© 2026 derecho.net.ar  
+Directorio Jurídico Argentino
 
 </footer>
 
 <script>
 
-const searchInput = document.getElementById("searchInput");
-const filterEspecialidad = document.getElementById("filterEspecialidad");
+const searchInput=document.getElementById("searchInput");
+const filterEspecialidad=document.getElementById("filterEspecialidad");
 
 function filterLawyers(){
 
-let text = searchInput.value.toLowerCase();
-let especialidad = filterEspecialidad.value;
+let text=searchInput.value.toLowerCase();
+let especialidad=filterEspecialidad.value;
 
-let cards = document.querySelectorAll(".card");
+let cards=document.querySelectorAll(".card");
 
-cards.forEach(card => {
+cards.forEach(card=>{
 
-let content = card.innerText.toLowerCase();
-let cardEspecialidad = card.dataset.especialidad;
+let content=card.innerText.toLowerCase();
+let cardEspecialidad=card.dataset.especialidad;
 
-let matchText = content.includes(text);
-let matchEspecialidad = especialidad === "" || cardEspecialidad === especialidad;
+let matchText=content.includes(text);
+let matchEspecialidad=especialidad===""||cardEspecialidad===especialidad;
 
-if(matchText && matchEspecialidad){
-
-card.style.display = "block";
-
-}else{
-
-card.style.display = "none";
-
-}
+card.style.display=(matchText&&matchEspecialidad)?"block":"none";
 
 });
 
 }
 
-searchInput.addEventListener("keyup", filterLawyers);
-filterEspecialidad.addEventListener("change", filterLawyers);
+searchInput.addEventListener("keyup",filterLawyers);
+filterEspecialidad.addEventListener("change",filterLawyers);
 
 </script>
 
