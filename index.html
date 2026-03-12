@@ -8,12 +8,13 @@
 
 <title>Wiki | Derecho.net.ar</title>
 
-<meta name="description" content="Enciclopedia jurídica abierta sobre Derecho argentino.">
+<meta name="description" content="Enciclopedia jurídica abierta sobre Derecho argentino. Conceptos, instituciones jurídicas y legislación explicada de forma clara.">
 
 <style>
 
 :root{
 --color-principal:#2c5363;
+--color-secundario:#3e6b7e;
 --color-fondo:#f4f6f8;
 }
 
@@ -21,7 +22,7 @@
 box-sizing:border-box;
 margin:0;
 padding:0;
-font-family:system-ui, Arial, sans-serif;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 }
 
 body{
@@ -34,13 +35,12 @@ color:#333;
 header{
 background:var(--color-principal);
 color:white;
-padding:12px 15px;
+padding:14px 18px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+flex-wrap:wrap;
 }
-
-/* BRAND */
 
 .brand{
 display:flex;
@@ -49,12 +49,12 @@ gap:10px;
 }
 
 .brand img{
-height:34px;
+height:36px;
 }
 
 .brand-title{
-font-weight:600;
 font-size:18px;
+font-weight:600;
 }
 
 .brand-title span{
@@ -67,82 +67,112 @@ margin-left:2px;
 
 .search input{
 padding:8px 10px;
-border-radius:4px;
+border-radius:6px;
 border:none;
-width:180px;
+width:200px;
 }
 
-/* LAYOUT */
+/* HERO */
 
-.layout{
-display:flex;
-max-width:1200px;
-margin:auto;
-}
-
-/* SIDEBAR */
-
-.sidebar{
-width:250px;
+.hero{
+text-align:center;
+padding:40px 20px;
 background:white;
-padding:20px;
-border-right:1px solid #ddd;
+border-bottom:1px solid #e5e5e5;
 }
 
-.sidebar h3{
+.hero img{
+height:70px;
 margin-bottom:10px;
-color:var(--color-principal);
 }
 
-.sidebar a{
-display:block;
-text-decoration:none;
-color:#333;
-margin-bottom:8px;
-font-size:14px;
-}
-
-.sidebar a:hover{
-color:var(--color-principal);
-}
-
-/* CONTENT */
-
-.content{
-flex:1;
-padding:30px;
-}
-
-.content h2{
+.hero h1{
+font-size:28px;
 color:var(--color-principal);
 margin-bottom:10px;
 }
 
-.content p{
-margin-bottom:15px;
+.hero p{
+max-width:700px;
+margin:auto;
 line-height:1.6;
 }
 
-/* ARTICLE LIST */
+/* CATEGORIES GRID */
+
+.categories{
+max-width:1100px;
+margin:auto;
+padding:30px 20px;
+}
+
+.categories h2{
+margin-bottom:20px;
+color:var(--color-principal);
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+.category{
+background:white;
+padding:18px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.05);
+transition:0.2s;
+}
+
+.category:hover{
+transform:translateY(-3px);
+}
+
+.category a{
+text-decoration:none;
+color:var(--color-principal);
+font-weight:600;
+font-size:16px;
+}
+
+/* ARTICLES */
+
+.destacados{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+.destacados h2{
+margin-bottom:20px;
+color:var(--color-principal);
+}
 
 .article-list{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:15px;
-margin-top:20px;
 }
 
 .article{
 background:white;
-padding:15px;
-border-radius:8px;
-box-shadow:0 2px 6px rgba(0,0,0,0.05);
+padding:18px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.05);
 }
 
 .article a{
 text-decoration:none;
+font-weight:600;
 color:var(--color-principal);
-font-weight:bold;
+font-size:16px;
+display:block;
+margin-bottom:6px;
+}
+
+.article p{
+font-size:14px;
 }
 
 /* FOOTER */
@@ -151,32 +181,23 @@ footer{
 margin-top:40px;
 background:var(--color-principal);
 color:white;
+padding:30px 20px;
 text-align:center;
-padding:20px;
 font-size:14px;
+}
+
+footer small{
+opacity:0.8;
+display:block;
+margin-top:8px;
 }
 
 /* MOBILE */
 
-@media(max-width:800px){
+@media(max-width:600px){
 
-.layout{
-flex-direction:column;
-}
-
-/* contenido primero */
-
-.content{
-order:1;
-}
-
-/* categorias despues */
-
-.sidebar{
-order:2;
-width:100%;
-border-right:none;
-border-top:1px solid #ddd;
+.hero h1{
+font-size:22px;
 }
 
 .search input{
@@ -185,12 +206,6 @@ width:140px;
 
 }
 
-.dominio{
-font-size:0.65em;
-opacity:0.75;
-margin-left:2px;
-}
-  
 </style>
 
 </head>
@@ -215,65 +230,82 @@ Wiki | Derecho<span>.net.ar</span>
 
 </header>
 
-<div class="layout">
+<section class="hero">
 
-<aside class="sidebar">
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEh9hfcZJh1XSfbFJ739F6t085dpoR2I63ad3f3DzJ5Pqd4AAyLrXPdKvw3DVCB7v6XpsBybvVOqx7a1BW6tAAFHKPLmW1g4jy7jBArQhEChr9ETMa9ZBfhx71LZ6UtmOmkR7kkW6tnIsZdZcdWbmqJzpujWT6nVcmGUvqa_3uRk0lzeRHhssSrTebv0L64=s16000">
 
-<h3>Categorías</h3>
-
-<a href="constitucional.html">Derecho Constitucional</a>
-<a href="civil.html">Derecho Civil</a>
-<a href="penal.html">Derecho Penal</a>
-<a href="laboral.html">Derecho Laboral</a>
-<a href="administrativo.html">Derecho Administrativo</a>
-<a href="comercial.html">Derecho Comercial</a>
-
-</aside>
-
-<main class="content">
-
-<h2>Bienvenido a Wiki | Derecho<span class="dominio">.net.ar</span></h2>
+<h1>Enciclopedia Jurídica</h1>
 
 <p>
-Derecho Wiki es una enciclopedia jurídica dedicada al estudio y divulgación del Derecho argentino.
-Su objetivo es ofrecer información clara y accesible sobre instituciones jurídicas, legislación y doctrina.
+Wiki Derecho es una enciclopedia jurídica dedicada al estudio y divulgación del Derecho argentino.
+Ofrece explicaciones claras sobre instituciones jurídicas, legislación y conceptos fundamentales del sistema jurídico.
 </p>
+
+</section>
+
+<section class="categories">
+
+<h2>Categorías jurídicas</h2>
+
+<div class="category-grid">
+
+<div class="category"><a href="/constitucional/">Derecho Constitucional</a></div>
+
+<div class="category"><a href="/civil/">Derecho Civil</a></div>
+
+<div class="category"><a href="/penal/">Derecho Penal</a></div>
+
+<div class="category"><a href="/laboral/">Derecho del Trabajo</a></div>
+
+<div class="category"><a href="/administrativo/">Derecho Administrativo</a></div>
+
+<div class="category"><a href="/comercial/">Derecho Comercial</a></div>
+
+</div>
+
+</section>
+
+<section class="destacados">
 
 <h2>Artículos destacados</h2>
 
 <div class="article-list">
 
 <div class="article">
-<a href="contrato-de-trabajo.html">Contrato de trabajo</a>
-<p>Concepto, elementos y regulación legal.</p>
+<a href="/laboral/despido">Despido</a>
+<p>Concepto, tipos de despido y consecuencias jurídicas.</p>
 </div>
 
 <div class="article">
-<a href="despido.html">Despido</a>
-<p>Tipos de despido y consecuencias jurídicas.</p>
+<a href="/laboral/contrato-de-trabajo">Contrato de trabajo</a>
+<p>Elementos esenciales y regulación legal.</p>
 </div>
 
 <div class="article">
-<a href="responsabilidad-civil.html">Responsabilidad civil</a>
-<p>Principios y régimen legal en Argentina.</p>
+<a href="/civil/responsabilidad-civil">Responsabilidad civil</a>
+<p>Principios del sistema de responsabilidad en Argentina.</p>
 </div>
 
 <div class="article">
-<a href="delito.html">Delito</a>
-<p>Concepto y estructura del delito.</p>
+<a href="/penal/delito">Delito</a>
+<p>Estructura del delito en el Derecho penal.</p>
 </div>
 
 </div>
 
-</main>
-
-</div>
+</section>
 
 <footer>
 
-© 2026 derecho.net.ar — Enciclopedia Jurídica
+© 2026 Derecho.net.ar — Enciclopedia Jurídica  
+
+<small>
+"Derecho.net.ar" es una marca registrada.  
+Propiedad de César Romero.
+</small>
 
 </footer>
 
 </body>
+
 </html>
