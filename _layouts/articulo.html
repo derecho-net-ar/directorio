@@ -88,6 +88,21 @@ padding:20px;
 font-size:14px;
 }
 
+.breadcrumbs{
+font-size:14px;
+margin-bottom:18px;
+color:#666;
+}
+
+.breadcrumbs a{
+text-decoration:none;
+color:#2c5363;
+}
+
+.breadcrumbs a:hover{
+text-decoration:underline;
+}
+
 </style>
 
 </head>
@@ -109,6 +124,14 @@ font-size:14px;
 <div class="container">
 
 <h1>{{ page.title }}</h1>
+
+<nav class="breadcrumbs">
+
+<a href="/">Inicio</a> ›
+<a href="/{{ page.categoria }}/">{{ page.categoria_nombre }}</a> ›
+<span>{{ page.title }}</span>
+
+</nav>
 
 <div id="toc"></div>
 
