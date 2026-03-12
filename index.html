@@ -306,6 +306,31 @@ Propiedad de César Romero.
 
 </footer>
 
+<script>
+
+const input = document.querySelector(".search input");
+
+input.addEventListener("keyup", function(){
+
+let filter = input.value.toLowerCase();
+
+let articles = document.querySelectorAll(".article");
+
+articles.forEach(function(article){
+
+let text = article.innerText.toLowerCase();
+
+if(text.includes(filter)){
+article.style.display="block";
+}else{
+article.style.display="none";
+}
+
+});
+
+});
+
+</script>
 </body>
 
 </html>
